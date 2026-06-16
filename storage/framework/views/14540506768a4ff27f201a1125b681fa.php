@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $perfume->nombre }} - Fragaria</title>
+    <title><?php echo e($perfume->nombre); ?> - Fragaria</title>
     <style>
         /* --- Estilos Generales --- */
         * {
@@ -227,84 +227,85 @@
 
     <div class="container">
         
-        <a href="{{ route('perfumes.index') }}" class="back-link">← Volver al catálogo</a>
+        <a href="<?php echo e(route('perfumes.index')); ?>" class="back-link">← Volver al catálogo</a>
 
         <div class="perfume-main-card">
             <div class="perfume-img-container">
-                <img src="{{ asset($perfume->imagen) }}" alt="{{ $perfume->nombre }}" style="object-fit: contain; padding: 8px;">
+                <img src="<?php echo e(asset($perfume->imagen)); ?>" alt="<?php echo e($perfume->nombre); ?>" style="object-fit: contain; padding: 8px;">
             </div>
             <div class="perfume-details">
-                <h1 class="perfume-title">{{ $perfume->nombre }}</h1>
-                <div class="perfume-subtitle">{{ $perfume->brand->nombre }} • {{ $perfume->category->nombre }}</div>
+                <h1 class="perfume-title"><?php echo e($perfume->nombre); ?></h1>
+                <div class="perfume-subtitle"><?php echo e($perfume->brand->nombre); ?> • <?php echo e($perfume->category->nombre); ?></div>
                 
                 <p class="perfume-description">
-                    {{ $perfume->descripcion ?? 'Fragancia moderna y sofisticada con notas frescas y especiadas. Destaca por su gran versatilidad y excelente rendimiento.' }}
+                    <?php echo e($perfume->descripcion ?? 'Fragancia moderna y sofisticada con notas frescas y especiadas. Destaca por su gran versatilidad y excelente rendimiento.'); ?>
+
                 </p>
 
                 <div class="metrics-grid">
                     <div class="metric-box">
                         <div class="metric-label">Duración promedio</div>
-                        <div class="metric-value">{{ $perfume->duracion_promedio ? round($perfume->duracion_promedio) . ' horas' : '8 horas' }}</div>
+                        <div class="metric-value"><?php echo e($perfume->duracion_promedio ? round($perfume->duracion_promedio) . ' horas' : '8 horas'); ?></div>
                     </div>
                     <div class="metric-box">
                         <div class="metric-label">Proyección</div>
-                        <div class="metric-value">{{ round($perfume->proyeccion_promedio) == 3 ? 'Intenso' : (round($perfume->proyeccion_promedio) == 2 ? 'Moderado' : 'Leve') }}</div>
+                        <div class="metric-value"><?php echo e(round($perfume->proyeccion_promedio) == 3 ? 'Intenso' : (round($perfume->proyeccion_promedio) == 2 ? 'Moderado' : 'Leve')); ?></div>
                     </div>
                     <div class="metric-box">
                         <div class="metric-label">Calificación</div>
-                        <div class="metric-value">{{ $perfume->calificacion_promedio ? number_format($perfume->calificacion_promedio, 1) : '4.5' }} / 5 ⭐</div>
+                        <div class="metric-value"><?php echo e($perfume->calificacion_promedio ? number_format($perfume->calificacion_promedio, 1) : '4.5'); ?> / 5 ⭐</div>
                     </div>
                     <div class="metric-box">
                         <div class="metric-label">Total reseñas</div>
-                        <div class="metric-value">{{ $perfume->total_resenas ?? 0 }} reseñas</div>
+                        <div class="metric-value"><?php echo e($perfume->total_resenas ?? 0); ?> reseñas</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        @if($myReview)
+        <?php if($myReview): ?>
             <h2 class="section-title">Tu reseña</h2>
             <div class="review-card my-review">
                 <div class="review-header">
                     <div>
-                        <div class="user-nickname">@ {{ $myReview->user->nickname ?? 'tu_usuario' }}</div>
-                        <div class="review-date">{{ $myReview->created_at->translatedFormat('d F Y') }}</div>
+                        <div class="user-nickname">@ <?php echo e($myReview->user->nickname ?? 'tu_usuario'); ?></div>
+                        <div class="review-date"><?php echo e($myReview->created_at->translatedFormat('d F Y')); ?></div>
                     </div>
-                    <div class="stars">{!! str_repeat('★', $myReview->calificacion) !!}{!! str_repeat('☆', 5 - $myReview->calificacion) !!}</div>
+                    <div class="stars"><?php echo str_repeat('★', $myReview->calificacion); ?><?php echo str_repeat('☆', 5 - $myReview->calificacion); ?></div>
                 </div>
-                <p class="review-comment">{{ $myReview->comentario }}</p>
+                <p class="review-comment"><?php echo e($myReview->comentario); ?></p>
                 <div class="review-meta-tags">
-                    <span>Duración: <strong>{{ $myReview->duracion }} horas</strong></span> &nbsp;|&nbsp;
-                    <span>Proyección: <strong>{{ $myReview->proyeccion == 3 ? 'Intenso' : ($myReview->proyeccion == 2 ? 'Moderado' : 'Leve') }}</strong></span>
+                    <span>Duración: <strong><?php echo e($myReview->duracion); ?> horas</strong></span> &nbsp;|&nbsp;
+                    <span>Proyección: <strong><?php echo e($myReview->proyeccion == 3 ? 'Intenso' : ($myReview->proyeccion == 2 ? 'Moderado' : 'Leve')); ?></strong></span>
                 </div>
                 <div class="review-actions">
                     <a href="#" class="btn btn-edit">Editar reseña</a>
                     <a href="#" class="btn btn-delete">Eliminar reseña</a>
                 </div>
             </div>
-        @endif
+        <?php endif; ?>
 
         <h2 class="section-title">Reseñas de usuarios</h2>
-        @forelse($otherReviews as $review)
+        <?php $__empty_1 = true; $__currentLoopData = $otherReviews; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $review): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <div class="review-card">
                 <div class="review-header">
                     <div>
-                        <div class="user-nickname">@ {{ $review->user->nickname ?? 'fraglover' }}</div>
-                        <div class="review-date">{{ $review->created_at->translatedFormat('d F Y') }}</div>
+                        <div class="user-nickname">@ <?php echo e($review->user->nickname ?? 'fraglover'); ?></div>
+                        <div class="review-date"><?php echo e($review->created_at->translatedFormat('d F Y')); ?></div>
                     </div>
-                    <div class="stars">{!! str_repeat('★', $review->calificacion) !!}{!! str_repeat('☆', 5 - $review->calificacion) !!}</div>
+                    <div class="stars"><?php echo str_repeat('★', $review->calificacion); ?><?php echo str_repeat('☆', 5 - $review->calificacion); ?></div>
                 </div>
-                <p class="review-comment">{{ $review->comentario }}</p>
+                <p class="review-comment"><?php echo e($review->comentario); ?></p>
                 <div class="review-meta-tags">
-                    <span>Duración: <strong>{{ $review->duracion }} horas</strong></span> &nbsp;|&nbsp;
-                    <span>Proyección: <strong>{{ $review->proyeccion == 3 ? 'Intenso' : ($review->proyeccion == 2 ? 'Moderado' : 'Leve') }}</strong></span>
+                    <span>Duración: <strong><?php echo e($review->duracion); ?> horas</strong></span> &nbsp;|&nbsp;
+                    <span>Proyección: <strong><?php echo e($review->proyeccion == 3 ? 'Intenso' : ($review->proyeccion == 2 ? 'Moderado' : 'Leve')); ?></strong></span>
                 </div>
             </div>
-        @empty
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
             <div class="no-reviews-msg">Aún no hay más reseñas de este perfume. ¡Sé el primero en aportar!</div>
-        @endforelse
+        <?php endif; ?>
 
     </div>
 
 </body>
-</html>
+</html><?php /**PATH C:\Users\Rich\Desktop\fragaria\resources\views/perfumes/show.blade.php ENDPATH**/ ?>
