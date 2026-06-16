@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
-class AcbXX3KgvqD7B8Y4WjCu6yNx1Prfu5cNHz extends Controller
+class AuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.

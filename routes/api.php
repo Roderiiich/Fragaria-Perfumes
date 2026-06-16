@@ -1,8 +1,12 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\ApiController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+// Endpoint público: autenticación
+Route::post('/login', [ApiController::class, 'login']);
+
+// Endpoints protegidos por token Sanctum
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/perfumes', [ApiController::class, 'perfumes']);
+});
