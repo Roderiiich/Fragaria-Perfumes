@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => 'Sauvage',
                 'descripcion' => 'Una fragancia radical e iconica inspirada en vastos paisajes salvajes. Notas de bergamota calabresa y pimienta de Sichuan abren paso a un corazon amaderado y especiado.',
-                'imagen'      => 'images/perfumes/dior-sauvage.png',
+                'imagen'      => 'images/perfumes/dior-sauvage2.png',
                 'brand_id'    => $dior->id,
                 'category_id' => $amaderado->id,
                 'resenas' => [
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => 'Miss Dior',
                 'descripcion' => 'Una fragancia floral con caracter. Notas de rosa de Grasse, peonia y almizcles blancos crean una composicion femenina y audaz a la vez.',
-                'imagen'      => 'images/perfumes/miss-dior.png',
+                'imagen'      => 'images/perfumes/miss-dior2.png',
                 'brand_id'    => $dior->id,
                 'category_id' => $floral->id,
                 'resenas' => [
@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => 'Bleu de Chanel',
                 'descripcion' => 'Una oda a la libertad masculina. Citricos frescos, madera de cedro y sandalo se combinan en una fragancia sofisticada y atemporal.',
-                'imagen'      => 'images/perfumes/bleu-de-chanel.png',
+                'imagen'      => 'images/perfumes/bleu2.png',
                 'brand_id'    => $chanel->id,
                 'category_id' => $amaderado->id,
                 'resenas' => [
@@ -68,7 +68,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => 'Coco Mademoiselle',
                 'descripcion' => 'Audaz y femenina. Una fragancia oriental fresca con notas de naranja, rosa, jazmin, pachuli y vetiver que deja una estela irresistible.',
-                'imagen'      => 'images/perfumes/coco-chanel.png',
+                'imagen'      => 'images/perfumes/coco2.png',
                 'brand_id'    => $chanel->id,
                 'category_id' => $oriental->id,
                 'resenas' => [
@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => 'Eros',
                 'descripcion' => 'Inspirado en el dios griego del amor. Una explosion de menta fresca, manzana verde y limon con un corazon de haba tonka y ambarina.',
-                'imagen'      => 'images/perfumes/versace-eros.png',
+                'imagen'      => 'images/perfumes/eros2.png',
                 'brand_id'    => $versace->id,
                 'category_id' => $citrico->id,
                 'resenas' => [
@@ -92,7 +92,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => 'Dylan Blue',
                 'descripcion' => 'Una fragancia acuatica e intensa. Hoja de higuera, pomelo y violeta se mezclan con notas de ambar y pachuli en una composicion profunda.',
-                'imagen'      => 'images/perfumes/versace-dylan-blue.png',
+                'imagen'      => 'images/perfumes/dylan2.png',
                 'brand_id'    => $versace->id,
                 'category_id' => $amaderado->id,
                 'resenas' => [
@@ -104,7 +104,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => 'Good Girl',
                 'descripcion' => 'Dualidad en un frasco iconico con forma de zapato de tacon. Notas de jazmin sambac, cacao, cafe y cedro crean una fragancia seductora e inesperada.',
-                'imagen'      => 'images/perfumes/good-girl.png',
+                'imagen'      => 'images/perfumes/good2.png',
                 'brand_id'    => $carolina->id,
                 'category_id' => $dulce->id,
                 'resenas' => [
@@ -117,7 +117,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => '212 VIP',
                 'descripcion' => 'El perfume de la vida nocturna. Notas de gardenia, caramelo y madera blanca evocan el glamour exclusivo de las fiestas mas selectas de Nueva York.',
-                'imagen'      => 'images/perfumes/212-vip.png',
+                'imagen'      => 'images/perfumes/212.png',
                 'brand_id'    => $carolina->id,
                 'category_id' => $dulce->id,
                 'resenas' => [
@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => 'Black Opium',
                 'descripcion' => 'Adictiva y rock. Cafe negro, vainilla y flor de naranjo se fusionan en una fragancia oriental gourmand que despierta los sentidos.',
-                'imagen'      => 'images/perfumes/black-opium.png',
+                'imagen'      => 'images/perfumes/black2.png',
                 'brand_id'    => $ysl->id,
                 'category_id' => $oriental->id,
                 'resenas' => [
@@ -142,7 +142,7 @@ class DatabaseSeeder extends Seeder
             [
                 'nombre'      => 'Libre',
                 'descripcion' => 'Una fragancia que celebra la libertad. Lavanda de Provenza, flor de naranjo de Marruecos y vainilla africana crean un contraste audaz y femenino.',
-                'imagen'      => 'images/perfumes/libre-ysl.png',
+                'imagen'      => 'images/perfumes/libre2.png',
                 'brand_id'    => $ysl->id,
                 'category_id' => $floral->id,
                 'resenas' => [

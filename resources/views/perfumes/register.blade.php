@@ -149,26 +149,26 @@
             <div class="form-row">
                 <div class="form-group">
                     <label class="form-label" for="nombres">Nombres</label>
-                    <input class="form-input" id="nombres" type="text" name="nombres" value="{{ old('nombres') }}" required autofocus placeholder="César">
+                    <input class="form-input" id="nombres" type="text" name="nombres" value="{{ old('nombres') }}" required autofocus placeholder="Rodrigo Andrés">
                     @error('nombres') <span class="error-msg">{{ $message }}</span> @enderror
                 </div>
                 
                 <div class="form-group">
                     <label class="form-label" for="apellidos">Apellidos</label>
-                    <input class="form-input" id="apellidos" type="text" name="apellidos" value="{{ old('apellidos') }}" required placeholder="Mora">
+                    <input class="form-input" id="apellidos" type="text" name="apellidos" value="{{ old('apellidos') }}" required placeholder="Cortés Cartes">
                     @error('apellidos') <span class="error-msg">{{ $message }}</span> @enderror
                 </div>
             </div>
 
             <div class="form-group full-width">
                 <label class="form-label" for="nickname">Nickname de usuario (Público)</label>
-                <input class="form-input" id="nickname" type="text" name="nickname" value="{{ old('nickname') }}" required placeholder="ejemplo: @cesarmora">
+                <input class="form-input" id="nickname" type="text" name="nickname" value="{{ old('nickname') }}" required placeholder="ejemplo: @roderiiich">
                 @error('nickname') <span class="error-msg">{{ $message }}</span> @enderror
             </div>
 
             <div class="form-group full-width">
                 <label class="form-label" for="email">Correo electrónico</label>
-                <input class="form-input" id="email" type="email" name="email" value="{{ old('email') }}" required placeholder="tu@correo.com">
+                <input class="form-input" id="email" type="email" name="email" value="{{ old('email') }}" required placeholder="rodrigo@gmail.com">
                 @error('email') <span class="error-msg">{{ $message }}</span> @enderror
             </div>
 
