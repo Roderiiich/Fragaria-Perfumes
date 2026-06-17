@@ -11,54 +11,54 @@ class PerfumeController extends Controller
 {
     public function index(Request $request)
     {
-        // 1. Traer marcas y categorías para los selectores de los filtros
+        // traer marcas y categorías para los selectores de los filtros
         $brands = Brand::all();
         $categories = Category::all();
 
-        // 2. Construir la consulta base con relaciones y promedios en tiempo real
+        // constructor de la consulta base con relaciones y promedios en tiempo real
         $query = Perfume::with(['brand', 'category'])
             ->withCount('reviews as total_resenas')
             ->withAvg('reviews as calificacion_promedio', 'calificacion')
             ->withAvg('reviews as duracion_promedio', 'duracion')
             ->withAvg('reviews as proyeccion_promedio', 'proyeccion');
 
-        // Filter: Buscador por nombre
+        // filtro buscador por nombre
         if ($request->filled('search')) {
             $query->where('nombre', 'LIKE', '%' . $request->search . '%');
         }
 
-        // Filter: Por Marca
+        // fltro por Marca
         if ($request->filled('brand_id')) {
             $query->where('brand_id', $request->brand_id);
         }
 
-        // Filter: Por Categoría Olfativa
+        // filtro por categoría olfativa
         if ($request->filled('category_id')) {
             $query->where('category_id', $request->category_id);
         }
 
-        // 3. Paginación de resultados
+        // paginación de resultados
         $perfumes = $query->paginate(12);
 
-        // 4. Retornar la vista con los datos correspondientes
+        // retornar la vista con los datos 
         return view('perfumes.index', compact('perfumes', 'brands', 'categories'));
     }
     public function show(Perfume $perfume)
 {
-    // 1. Cargar relaciones y calcular estadísticas para este perfume específico
+    // cargar relaciones y calcular estadísticas para un perfume específico
     $perfume->load(['brand', 'category', 'reviews.user']);
     $perfume->loadCount('reviews as total_resenas');
     $perfume->loadAvg('reviews as calificacion_promedio', 'calificacion');
     $perfume->loadAvg('reviews as duracion_promedio', 'duracion');
     $perfume->loadAvg('reviews as proyeccion_promedio', 'proyeccion');
 
-    // 2. Extraer la reseña del usuario logueado (si existe)
+    // extraer la reseña del usuario logueado (si existe)
     $myReview = null;
     if (auth()->check()) {
         $myReview = $perfume->reviews->where('user_id', auth()->id())->first();
     }
 
-    // 3. Filtrar las reseñas de los demás usuarios
+    // filtrar las reseñas de los demás usuarios
     $otherReviews = $perfume->reviews;
     if ($myReview) {
         $otherReviews = $otherReviews->where('id', '!=', $myReview->id);

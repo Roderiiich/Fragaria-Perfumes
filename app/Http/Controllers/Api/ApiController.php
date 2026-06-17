@@ -11,10 +11,8 @@ use Illuminate\Validation\ValidationException;
 
 class ApiController extends Controller
 {
-    /**
-     * POST /api/login
-     * Autentica un usuario y retorna un token Sanctum.
-     */
+    /*POST /api/login autentica un usuario y retorna un token sanctum.*/
+
     public function login(Request $request)
     {
         $request->validate([
@@ -41,10 +39,7 @@ class ApiController extends Controller
         ]);
     }
 
-    /**
-     * GET /api/perfumes
-     * Lista perfumes con búsqueda opcional por nombre. Requiere token.
-     */
+    /*GET /api/perfumes lista perfumes con búsqueda opcional por nombre se requiere token */
     public function perfumes(Request $request)
     {
         $query = Perfume::with(['brand', 'category'])

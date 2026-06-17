@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Fragaria</title>
     <style>
-        /* --- Estilos Base --- */
+     
         * {
             box-sizing: border-box;
             margin: 0;
@@ -23,7 +23,7 @@
             padding: 20px;
         }
 
-        /* --- Tarjeta de Contenedor --- */
+       
         .auth-card {
             background-color: #ffffff;
             width: 100%;
@@ -50,7 +50,7 @@
             margin-bottom: 32px;
         }
 
-        /* --- Grupos del Formulario --- */
+     
         .form-group {
             display: flex;
             flex-direction: column;
@@ -88,7 +88,7 @@
             font-weight: 500;
         }
 
-        /* --- Opciones Extras (Remember & Forgot) --- */
+        
         .options-row {
             display: flex;
             justify-content: space-between;

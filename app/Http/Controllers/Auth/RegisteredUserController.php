@@ -14,20 +14,16 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Muestra la vista de registro.
-     */
+    /* Muestra la vista de registro*/
     public function create(): View
     {
         return view('perfumes.register');
     }
 
-    /**
-     * Maneja la petición de registro de un nuevo usuario.
-     */
+    /*Maneja la petición de registro de un nuevo usuario.*/
     public function store(Request $request): RedirectResponse
     {
-        // 1. Validamos que cumpla tus requerimientos estrictos
+        // validamos que cumpla tus requerimientos estrictos
         $request->validate([
             'nombres' => ['required', 'string', 'max:255'],
             'apellidos' => ['required', 'string', 'max:255'],
@@ -36,7 +32,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        // 2. Creamos el registro en la base de datos
+        // creamos el registro en la base de datos
         $user = User::create([
             'nombres' => $request->nombres,
             'apellidos' => $request->apellidos,
@@ -47,10 +43,10 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        // 3. Iniciamos la sesión del usuario recién creado
+        // iniciamos la sesión del usuario recién creado
         Auth::login($user);
 
-        // 4. Lo enviamos de vuelta al catálogo principal
+        // lo enviamos al catálogo principal
         return redirect(route('perfumes.index', absolute: false));
     }
 }

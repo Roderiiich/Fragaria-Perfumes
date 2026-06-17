@@ -15,14 +15,10 @@ use Laravel\Sanctum\HasApiTokens;
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
+   
     use HasFactory, Notifiable, HasApiTokens;
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+    
     protected function casts(): array
     {
         return [
@@ -31,9 +27,7 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Relación: Un usuario puede tener muchas reseñas.
-     */
+    /* relación de usuario puede tener muchas reseñas.*/
     public function reviews()
     {
         return $this->hasMany(Review::class);

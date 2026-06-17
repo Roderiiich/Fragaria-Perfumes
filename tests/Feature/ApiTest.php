@@ -52,7 +52,7 @@ class ApiTest extends TestCase
     }
 
     // =========================================================
-    // ENDPOINT: GET /api/perfumes
+    // aqui está el ENDPOINT: GET /api/perfumes
     // =========================================================
 
     public function test_perfumes_requiere_autenticacion(): void
