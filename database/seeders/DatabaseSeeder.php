@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
         $perfumes = [
             [
-                'nombre'      => 'Sauvage',
+                'nombre'      => 'Sauvage Elixir',
                 'descripcion' => 'Una fragancia radical e iconica inspirada en vastos paisajes salvajes. Notas de bergamota calabresa y pimienta de Sichuan abren paso a un corazon amaderado y especiado.',
                 'imagen'      => 'images/perfumes/dior-sauvage2.png',
                 'brand_id'    => $dior->id,
